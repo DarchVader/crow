@@ -1,0 +1,279 @@
+# baseURI: http://ontologie.crow.nl/imbor/201811/
+# prefix: imbor
+
+@prefix imbor: 		<http://ontologie.crow.nl/imbor/201811/> .
+@prefix dcterms: 	<http://purl.org/dc/terms/> .
+@prefix owl: 		<http://www.w3.org/2002/07/owl#> .
+@prefix rdf: 		<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: 		<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: 		<http://www.w3.org/2004/02/skos/core#> .
+@prefix xs: 		<http://www.w3.org/2001/XMLSchema#> .
+@prefix xsd: 		<http://www.w3.org/2001/XMLSchema#> .
+
+imbor:
+  rdf:type owl:Ontology ;
+  dcterms:created "2018-11-07"^^xsd:date ;
+  dcterms:creator "Wessel Schollmeijer van CROW Basisspecificaties project team." ;
+  dcterms:modified "2018-11-07"^^xsd:date ;
+  rdfs:comment "Dit schema bevat een beschrijving van de klassen die noodzakelijk zijn voor het samenstellen van een Objecttype Library (OTL)."@nl ;
+  rdfs:label "OTL Specificatieschema"@nl ;
+  owl:versionInfo "Version 3.2.2" ;
+.
+### CLASSES 
+
+imbor:Objecttypegroep rdf:type owl:Class;
+  dcterms:created "2018-11-07"^^xsd:date ;  
+  rdfs:isDefinedBy imbor: ;
+  rdfs:label "Objecttypegroep"@nl ;
+  rdfs:label "Objecttypegroup"@en ;
+.
+
+imbor:Objecttype rdf:type owl:Class;
+  dcterms:created "2018-11-07"^^xsd:date ;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:label "Objecttype"@nl;
+  rdfs:label "Objecttype"@en;
+  rdfs:subClassOf imbor:Objecttypegroep;
+.
+
+imbor:Type rdf:type owl:Class;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:label "Type"@nl;
+  rdfs:label "Type"@en;
+  rdfs:subClassOf imbor:Objecttype;
+.
+
+imbor:DetailType rdf:type owl:Class;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:label "Detail type"@nl;
+  rdfs:label "Detailed type"@en;
+  rdfs:subClassOf imbor:Type;
+.
+
+imbor:DetailTypeExtra rdf:type owl:Class;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:label "Extra gedetailleerd type"@nl;
+  rdfs:label "Extra detailed type"@en;
+  rdfs:subClassOf imbor:DetailType;
+.
+
+imbor:Attribuut rdf:type owl:Class;
+  dcterms:created "2018-11-07"^^xsd:date ;  
+  rdfs:isDefinedBy imbor: ;
+  rdfs:label "Attribuut"@nl;
+  rdfs:label "Property"@en;
+.
+
+imbor:Informatiemodel rdf:type owl:Class;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:label "Informatiemodel"@nl;
+  rdfs:label "Informationmodel"@en;
+.
+
+imbor:Attribuutsoort rdf:type owl:Class;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:label "Attribuutsoort"@nl;
+  rdfs:label "Property type"@en;
+.
+
+imbor:Referentietabel rdf:type owl:Class;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:label "Referentietabel"@nl;
+  rdfs:label "Reference table"@en;
+.
+
+imbor:Domeinwaarde rdf:type owl:Class;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:label "Domeinwaarde"@nl;
+  rdfs:label "Domain"@en;
+.
+
+imbor:Gebruiksfunctie rdf:type owl:Class;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:label "Gebruiksfunctie"@nl;
+  rdfs:label "Application"@nl;
+.
+
+imbor:GebruiksfunctieGroep rdf:type owl:Class;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:label "Groep"@nl;
+  rdfs:label "Group"@en;
+.
+
+imbor:Status rdf:type owl:Class;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:label "Status"@nl;
+  rdfs:label "Status"@en;
+.
+
+### DATATYPE PROPERTIES
+
+imbor:definitie rdf:type owl:DatatypeProperty;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:label "definitie"@nl;
+  rdfs:label "definition"@en;
+.
+
+imbor:status rdf:type owl:DatatypeProperty;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+.
+
+imbor:synoniem rdf:type owl:DatatypeProperty;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+.
+
+imbor:attribuutID rdf:type owl:DatatypeProperty;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:domain imbor:Attribuut;
+.
+
+imbor:attribuutGUID rdf:type owl:DatatypeProperty;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:domain imbor:Attribuut;
+.
+
+imbor:attribuutnummer rdf:type owl:DatatypeProperty;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:domain imbor:Attribuut;
+.
+
+imbor:automatisch rdf:type owl:DatatypeProperty;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:domain imbor:Attribuut;
+.
+
+imbor:wijzigingsdatum rdf:type owl:DatatypeProperty;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:domain imbor:Attribuut;
+.
+
+imbor:publicatiedatum rdf:type owl:DatatypeProperty;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:domain imbor:Attribuut;
+.
+
+imbor:toelichting rdf:type owl:DatatypeProperty;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:domain imbor:Attribuut;
+.
+
+imbor:attribuutnaamPublicatie rdf:type owl:DatatypeProperty;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:domain imbor:Attribuut;
+.
+
+imbor:gegevenstype rdf:type owl:DatatypeProperty;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:domain imbor:Attribuut;
+.
+
+imbor:eenheid rdf:type owl:DatatypeProperty;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:domain imbor:Attribuut;
+.
+
+imbor:veldlengte rdf:type owl:DatatypeProperty;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:domain imbor:Attribuut;
+.
+
+
+
+
+
+  
+
+### OBJECT PROPERTIES
+
+imbor:objecttypegroep rdf:type owl:ObjectProperty;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:domain imbor:Objecttype;
+  rdfs:range imbor:Objecttypegroep;
+.
+
+imbor:attribuut rdf:type owl:ObjectProperty;
+  dcterms:created "2018-11-07"^^xsd:date ;  
+  rdfs:isDefinedBy imbor: ;
+  rdfs:domain imbor:Objecttype;
+  rdfs:range imbor:Attribuut;
+  rdfs:comment "Een Attribuut kan een eigenschap zijn van een Objecttype en met deze relatie wordt aangegeven tot welk Objecttype het Attribuut behoort";
+.
+
+imbor:objecttype rdf:type owl:ObjectProperty;
+  dcterms:created "2018-11-07"^^xsd:date ;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:domain imbor:Objecttype;
+  rdfs:range imbor:Objecttype;
+.
+
+imbor:informatiemodel rdf:type owl:ObjectProperty;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:domain imbor:Attribuut;
+  rdfs:range imbor:Informatiemodel;
+.
+
+imbor:attribuutsoort rdf:type owl:ObjectProperty;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:domain imbor:Attribuut;
+  rdfs:range imbor:Attribuutsoort;
+.
+
+imbor:referentietabel rdf:type owl:ObjectProperty;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:domain imbor:Attribuut;
+  rdfs:range imbor:Referentietabel;
+.
+
+imbor:domeinwaarde rdf:type owl:ObjectProperty;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:domain imbor:Attribuut;
+  rdfs:range imbor:Domeinwaarde;
+.
+
+imbor:bovenliggendeDomeinwaarde rdf:type owl:ObjectProperty;
+  dcterms:created "2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:domain imbor:Domeinwaarde;
+  rdfs:range imbor:Domeinwaarde;
+.
+
+imbor:gebruiksfunctiegroep rdf:type owl:ObjectProperty;
+  dcterms:created"2018-11-07"^^xsd:date;
+  rdfs:isDefinedBy imbor: ;
+  rdfs:domain imbor:Gebruiksfunctie;
+  rdfs:range imbor:GebruiksfunctieGroep;
+.
+
+	
+
+
+
